@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.16)
 add_executable(c4-1-hierarchy
     1-hierarchy/Hierarchy.cpp
     1-hierarchy/Boss.cpp
@@ -24,3 +25,6 @@ add_executable(c4-3-vehicles
     3-vehicles/Scooter.h
     3-vehicles/Vehicle.h
 )
+target_compile_features(c4-1-hierarchy PRIVATE cxx_std_17)
+target_compile_features(c4-2-farm PRIVATE cxx_std_17)
+target_compile_features(c4-3-vehicles PRIVATE cxx_std_17)
