@@ -14,10 +14,46 @@ public:
 
     unsigned int drive() const override
     {
-        std::cout << "Vrooooom!" << std::endl;
-        return _speed;
+        if (_driver.has_car_licence())
+        {
+            std::cout << "Vrooooom!" << std::endl;
+            return _speed;
+        }
+        else
+        {
+            std::cerr << "No car licence detected..." << std::endl;
+            return 0u;
+        }
+
     }
 
 private:
     unsigned int _speed = 0;
 };
+
+
+class FlyingCar : public Car 
+{
+public:
+    FlyingCar(const Driver& driver, unsigned int speed)
+        : Car {driver, speed}
+        , _flying_speed {10u * speed}
+        {}
+
+    unsigned int drive() const override
+    {
+        if (_driver.has_air_licence())
+        {
+            std::cout << "Sweeesh!" << std::endl;
+            return _flying_speed;
+        }
+        else
+        {
+            return Car::drive();
+        }
+    }
+
+private:
+    unsigned int _flying_speed = 0;
+
+}
