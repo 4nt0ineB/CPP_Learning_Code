@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <functional>
 
 class ComparableDog
 {
@@ -27,3 +28,16 @@ private:
     std::string _name;
     std::string _species;
 };
+
+namespace std {
+
+template <>
+struct hash<HashableDog>
+{
+    size_t operator()(const HashableDog& c) const
+    {
+        return /* some value that can be computed from c */;
+    } 
+};
+
+}

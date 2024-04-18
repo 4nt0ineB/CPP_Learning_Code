@@ -1,4 +1,6 @@
 #include <list>
+#include <vector>
+#include <stack>
 
 enum Fruit
 {
@@ -25,7 +27,11 @@ void try_lists()
 
 void try_stacks()
 {
-    // Implement stack tests here.
+    auto stack = std::stack<int, std::vector<int>>{};
+    stack.push(0);
+    stack.push(1);
+    stack.push(2);
+    
 }
 
 int main()

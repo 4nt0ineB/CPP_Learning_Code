@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <tuple>
 
 bool parse_params(int argc, const char* const* argv, int& numerator, int& denominator)
 {
@@ -32,10 +33,10 @@ bool parse_params(int argc, const char* const* argv, int& numerator, int& denomi
     return true;
 }
 
-int divide(int numerator, int denominator, int& reminder)
+std::tuple<int, int> divide(int numerator, int denominator, int& reminder)
 {
     reminder = numerator % denominator;
-    return numerator / denominator;
+    return std::tuple<int,int>{numerator / denominator, numerator % denominator};
 }
 
 int main(int argc, char** argv)
